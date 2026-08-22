@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = '/api';
+const API_BASE = 'https://recon-hackathon-1.onrender.com/api';
 
 export const getTransaction = async (transactionId) => {
   const res = await axios.get(`${API_BASE}/transactions/${transactionId}`);
