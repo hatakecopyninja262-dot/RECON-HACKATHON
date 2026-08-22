@@ -5,13 +5,13 @@ from app.routes import health, products, transactions
 
 app = FastAPI(title="RECON Simulator API")
 
-# Allow frontend to communicate with backend
+# Allow RECON PAY, RECON MERCHANT and local Vite development servers
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://recon-pay.onrender.com",
-        "http://localhost:5173",
     ],
+    allow_origin_regex=r"https?://localhost:\d+",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
