@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = 'https://recon-hackathon-1.onrender.com/api';
+const API_BASE = '/api';
 
 export const getTransaction = async (transactionId) => {
   const res = await axios.get(`${API_BASE}/transactions/${transactionId}`);
@@ -14,5 +14,15 @@ export const getEvents = async (transactionId) => {
 
 export const getSettlement = async (transactionId) => {
   const res = await axios.get(`${API_BASE}/transactions/${transactionId}/settlement`);
+  return res.data;
+};
+
+export const getRefund = async (transactionId) => {
+  const res = await axios.get(`${API_BASE}/transactions/${transactionId}/refund`);
+  return res.data;
+};
+
+export const getBankCase = async (transactionId) => {
+  const res = await axios.get(`${API_BASE}/transactions/${transactionId}/bank-case`);
   return res.data;
 };

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE = 'https://recon-hackathon-1.onrender.com/api';
+// The proxy in vite.config.js will forward these to http://127.0.0.1:8000
+const API_BASE = '/api';
 
 export const getProducts = async () => {
   const res = await axios.get(`${API_BASE}/products`);
@@ -28,8 +29,6 @@ export const createTransaction = async (amount) => {
 };
 
 export const simulatePayment = async (transactionId) => {
-  const res = await axios.post(
-    `${API_BASE}/transactions/${transactionId}/simulate-payment`
-  );
+  const res = await axios.post(`${API_BASE}/transactions/${transactionId}/simulate-payment`);
   return res.data;
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getProducts, createDemoProduct, createTransaction, simulatePayment } from './api';
 import { QrCode, ShoppingBag, ShieldCheck, AlertCircle, Loader2, CheckCircle2 } from 'lucide-react';
+import { MaskedValue } from './MaskedValue';
 
 const STATES = {
   PRODUCT: 'PRODUCT',
@@ -149,9 +150,9 @@ function App() {
               </div>
               
               <div className="w-full bg-gray-50 rounded-lg p-4 mb-8 text-sm border border-gray-100">
-                <div className="flex justify-between mb-2">
+                <div className="flex justify-between mb-2 items-center">
                   <span className="text-gray-500">Transaction ID</span>
-                  <span className="font-mono font-medium text-gray-900">{transaction?.transaction_id}</span>
+                  <MaskedValue value={transaction?.transaction_id} type="transaction" className="text-gray-900 text-sm" />
                 </div>
                 <div className="flex justify-between mb-2">
                   <span className="text-gray-500">Status</span>
